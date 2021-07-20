@@ -13,6 +13,14 @@
 			<a href="{% url 'home' %}">Test Blog</a>
 		</h1>
 	</header>
+	{% if user.is_authenticated %}
+		<p>Xush kelibsiz, {{ user.username}}!</p>
+		<p><a href="{% url 'logout' %}">Saytdan chiqish</a></p>
+	{% else %}
+		<p><a href="{% url 'login' %}">Saytga kirish</a></p>
+		<p><a href="{% url 'signup' %}">Ro'yxatdan o'tish</a></p>
+
+	{% endif %}
 	<div>
 		{% block content %}
 
